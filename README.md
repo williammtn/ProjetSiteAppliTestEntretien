@@ -1,4 +1,4 @@
-__Chef de projet:__ Allan Ponchaut
+__Chef de projet:__ Allan Ponchaut  
 __Chef de GIT:__ Corentin Gaspard
 
 # Réunion du 10/09/2022
