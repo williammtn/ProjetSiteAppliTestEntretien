@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import {MatCardModule} from "@angular/material/card";
+import { EntrainementComponent } from './entrainement/entrainement.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AcceuilComponent,
+    EntrainementComponent,
   ],
   imports: [
     BrowserModule,
