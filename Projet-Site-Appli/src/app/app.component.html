@@ -1,20 +1,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <ul>
   <li><a href="#"><img id="logo" src="favicon.ico" alt="logo"/></a></li>
-  <li><a href="#">Mode</a></li>
+  <li><br><a href="#">Mode</a></li>
+    <ul class="sous">
+      <li><a href="/entrainement">Mode Entrainement</a></li>
+      <li><a href="/simulation">Mode Test</a></li>
+      <li><a href="/survival">Mode Survival</a> </li>
+    </ul>
   <div class="logo_quizz">
     <li><a href="#"><img src="assets/img/Logo.png" width="129"/></a></li>
   </div>
-<!--  <li><a href="startGame">Ajouter Joueur</a></li>i>-->
 </ul>
-
-<!--
-<div [ngClass]="isDarkTheme ? 'dark-theme' : 'light-theme'"></div>
-<mat-card>
-  <mat-card-content>
-    <mat-slide-toggle (click)="toggleTheme()">Slide me!</mat-slide-toggle>
-  </mat-card-content>
-</mat-card>
--->
 <router-outlet></router-outlet>
 
