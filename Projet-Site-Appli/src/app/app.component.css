@@ -1,10 +1,9 @@
-
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: blue;
+  background-color: darkcyan;
 }
 
 li {
@@ -26,10 +25,11 @@ li a {
   transition: background-color 0.5s;
 }
 li a:hover:not(.active) {
-  background-color: orangered;
+  background-color: cadetblue;
 }
 .logo_quizz{
   margin-left: auto;
   margin-right: auto;
   width: 12em
 }
+
