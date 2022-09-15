@@ -1,0 +1,18 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<mat-grid-list cols="3" rowHeight="3:4">
+  <mat-grid-tile>
+    <mat-card [routerLink]="['/survival']">
+      <img mat-card-image id ="picture" src="assets/img/survival.jpg" width="450" height="450">
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card [routerLink]="['/entrainement']">
+      <img mat-card-image src="assets/img/entretien.jpg" width="450" height="450">
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card [routerLink]="['/simulation']">
+      <img mat-card-image src="assets/img/entretien2.png" width="450" height="450">
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
