@@ -1,12 +1,7 @@
---
--- Base de données
---
 
--- --------------------------------------------------------
-
---
--- Structure de la table categories
---
+drop schema if exists BaseAppli CASCADE;
+create schema BaseAppli;
+set search_path to BaseAppli;
 
 CREATE TABLE categories (
   id_categorie serial PRIMARY KEY NOT NULL,
@@ -14,21 +9,16 @@ CREATE TABLE categories (
   label_en varchar(300) NOT NULL
 );
 
---
--- Exemple de données de la table categories
---
 
 INSERT INTO categories (id_categorie, label_fr, label_en) VALUES
 (1, 'Base de données', 'Database'),
 (2, 'Réseau', 'Network'),
 (3, 'Web - Front', 'Web - Front'),
-(4, 'Web - Back ', 'Web - Back ');
+(4, 'Web - Back ', 'Web - Back '),
+(6, 'Experience','Experience'),
+(7,'Personnel','Personnal');
 
--- --------------------------------------------------------
 
---
--- Structure de la table difficultes
---
 
 CREATE TABLE difficultes (
   id_difficulte serial PRIMARY KEY NOT NULL,
@@ -36,20 +26,14 @@ CREATE TABLE difficultes (
   level_en varchar(300) NOT NULL
 );
 
---
--- Exemple de données de la table difficultes
---
+
 
 INSERT INTO difficultes (id_difficulte, level_fr, level_en) VALUES
 (1, 'Facile', 'Easy'),
 (2, 'Moyen', 'Medium'),
 (3, 'Difficile', 'Hard');
 
--- --------------------------------------------------------
 
---
--- Structure de la table questions
---
 
 CREATE TABLE questions (
   id_question serial PRIMARY KEY NOT NULL,
@@ -64,19 +48,14 @@ CREATE TABLE questions (
   pro_tips_en varchar(300)
 );
 
---
--- Exemple de données de la table questions
---
-
 INSERT INTO questions (id_question, label_fr, label_en, id_categorie, id_difficulte, eval_mode, training_mode, survival_mode, pro_tips_fr, pro_tips_en) VALUES
 (1, 'Parmi ces technologies, lesquelles sont utilisées pour le développement Web ?', 'Which of these technologies are used for web development?', 3, 2, TRUE, TRUE, FALSE, NULL, NULL),
-(2, 'Lequel de ces protocoles n est qu un protocole d échange de fichiers entre un client et un serveur sur Internet ?', 'Which of these protocols is only a file exchange protocol between a client and a server on the Internet ?', 2, 1, TRUE, TRUE, TRUE, 'FTP pour Protocole de Transport de Fichier', 'FTP for File Trasfert Protocol');
-
--- --------------------------------------------------------
-
---
--- Structure de la table reponses
---
+(2, 'Lequel de ces protocoles n est qu un protocole d échange de fichiers entre un client et un serveur sur Internet ?', 'Which of these protocols is only a file exchange protocol between a client and a server on the Internet ?', 2, 1, TRUE, TRUE, TRUE, 'FTP pour Protocole de Transport de Fichier', 'FTP for File Trasfert Protocol'),
+(8, 'Sur quels sites internet et de quels tailles avez vous travaillé auparavant?','What websites of what size have you worked on before?',6,1,TRUE,FALSE,FALSE,NULL,NULL),
+(9, 'Qu''est ce que le HTML sémantique ?','What is Semantic HTML?',3,2,TRUE,TRUE,TRUE,NULL,NULL),
+(10, 'Un site ne s''affiche pas correctement sur des appareils différents. Quels sont les premières choses que vous feriez pour corriger le problème ?','The website does not display correctly on different devices.  What are the first steps you would take to fix it?',3,2,TRUE,TRUE,TRUE,NULL,NULL),
+(11, 'Quelle est pour vous, la meilleure qualité pour un développeur ?','What is for you, the best quality for a developper ?',7,1,TRUE,FALSE,FALSE,NULL,NULL),
+(12, 'En Java, quelle est la différence entre equals() et == ?','In Java, what is the difference between equals() and ==?',6,2,TRUE,TRUE,TRUE,NULL,NULL);
 
 CREATE TABLE reponses (
   id_reponse serial PRIMARY KEY NOT NULL,
@@ -86,9 +65,6 @@ CREATE TABLE reponses (
   valid boolean NOT NULL
 );
 
---
--- Exemple de données de la table reponses
---
 
 INSERT INTO reponses (id_reponse, id_question, label_fr, label_en, valid) VALUES
 (1, 1, 'Angular', 'Angular',  TRUE),
@@ -100,12 +76,6 @@ INSERT INTO reponses (id_reponse, id_question, label_fr, label_en, valid) VALUES
 (7, 2, 'FTP', 'FTP',  TRUE),
 (8, 2, 'SSH', 'SSH',  TRUE);
 
--- --------------------------------------------------------
-
---
--- Structure de la table users
--- Useless pour jouer, mais utile pour une gestion de role (auth admin, add questions, ...)
---
 
 CREATE TABLE users (
   idU serial PRIMARY KEY NOT NULL,
