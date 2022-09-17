@@ -1,12 +1,4 @@
---
--- Base de données
---
 
--- --------------------------------------------------------
-
---
--- Structure de la table categories
---
 
 CREATE TABLE categories (
   id_categorie serial PRIMARY KEY NOT NULL,
@@ -14,21 +6,17 @@ CREATE TABLE categories (
   label_en varchar(300) NOT NULL
 );
 
---
--- Exemple de données de la table categories
---
+
 
 INSERT INTO categories (id_categorie, label_fr, label_en) VALUES
 (1, 'Base de données', 'Database'),
 (2, 'Réseau', 'Network'),
 (3, 'Web - Front', 'Web - Front'),
-(4, 'Web - Back ', 'Web - Back ');
+(4, 'Web - Back ', 'Web - Back '),
+(5,'Prog Objet', 'Oriented Object Programmation'),
+(7,'Personnel','Personnal');
 
--- --------------------------------------------------------
 
---
--- Structure de la table difficultes
---
 
 CREATE TABLE difficultes (
   id_difficulte serial PRIMARY KEY NOT NULL,
@@ -36,20 +24,14 @@ CREATE TABLE difficultes (
   level_en varchar(300) NOT NULL
 );
 
---
--- Exemple de données de la table difficultes
---
+
 
 INSERT INTO difficultes (id_difficulte, level_fr, level_en) VALUES
 (1, 'Facile', 'Easy'),
 (2, 'Moyen', 'Medium'),
 (3, 'Difficile', 'Hard');
 
--- --------------------------------------------------------
 
---
--- Structure de la table questions
---
 
 CREATE TABLE questions (
   id_question serial PRIMARY KEY NOT NULL,
@@ -64,19 +46,18 @@ CREATE TABLE questions (
   pro_tips_en varchar(300)
 );
 
---
--- Exemple de données de la table questions
---
+
 
 INSERT INTO questions (id_question, label_fr, label_en, id_categorie, id_difficulte, eval_mode, training_mode, survival_mode, pro_tips_fr, pro_tips_en) VALUES
 (1, 'Parmi ces technologies, lesquelles sont utilisées pour le développement Web ?', 'Which of these technologies are used for web development?', 3, 2, TRUE, TRUE, FALSE, NULL, NULL),
-(2, 'Lequel de ces protocoles n est qu un protocole d échange de fichiers entre un client et un serveur sur Internet ?', 'Which of these protocols is only a file exchange protocol between a client and a server on the Internet ?', 2, 1, TRUE, TRUE, TRUE, 'FTP pour Protocole de Transport de Fichier', 'FTP for File Trasfert Protocol');
+(2, 'Lequel de ces protocoles n est qu un protocole d échange de fichiers entre un client et un serveur sur Internet ?', 'Which of these protocols is only a file exchange protocol between a client and a server on the Internet ?', 2, 1, TRUE, TRUE, TRUE, 'FTP pour Protocole de Transport de Fichier', 'FTP for File Trasfert Protocol'),
+(3, 'Comment améliorer une page web qui se charge lentement?', 'How to improve a web page that loads slowly?', 4,2, TRUE,TRUE,TRUE,NULL,NULL ),
+(4,'Comment vous assurez-vous que vos sites Web et applications sont accessibles aux utilisateurs ?','How do you ensure that your websites and applications are accessible to users?',4,2,TRUE,TRUE,TRUE,NULL,NULL ),
+(5,'Quel est votre langage de programmation préféré, et pourquoi ?','What is your favorite programming language, and why?',7,1,TRUE,TRUE,FALSE,NULL,NULL),
+(6,'Quelle est la différence entre les classes et les ID dans les CSS ?','What is the difference between classes and IDs in CSS?',3,2,TRUE,TRUE,TRUE,NULL,NULL),
+(7,'En Java, peut-on surcharger la méthode main() ?','In Java, can we override the main() method?', 5,3,TRUE,TRUE,TRUE,NULL,NULL);
 
--- --------------------------------------------------------
 
---
--- Structure de la table reponses
---
 
 CREATE TABLE reponses (
   id_reponse serial PRIMARY KEY NOT NULL,
@@ -86,9 +67,7 @@ CREATE TABLE reponses (
   valid boolean NOT NULL
 );
 
---
--- Exemple de données de la table reponses
---
+
 
 INSERT INTO reponses (id_reponse, id_question, label_fr, label_en, valid) VALUES
 (1, 1, 'Angular', 'Angular',  TRUE),
@@ -100,12 +79,6 @@ INSERT INTO reponses (id_reponse, id_question, label_fr, label_en, valid) VALUES
 (7, 2, 'FTP', 'FTP',  TRUE),
 (8, 2, 'SSH', 'SSH',  TRUE);
 
--- --------------------------------------------------------
-
---
--- Structure de la table users
--- Useless pour jouer, mais utile pour une gestion de role (auth admin, add questions, ...)
---
 
 CREATE TABLE users (
   idU serial PRIMARY KEY NOT NULL,
