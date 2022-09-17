@@ -1,15 +1,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<ul>
+<ul *ngIf ="francais == true">
   <li><a href="#"><img id="logo" src="favicon.ico" alt="logo"/></a></li>
   <li><br><a href="#">Mode</a></li>
     <ul class="sous">
       <li><a href="/entrainement">Mode Entrainement</a></li>
       <li><a href="/simulation">Mode Test</a></li>
-      <li><a href="/survival">Mode Survival</a> </li>
+      <li><a href="/survival">Mode Survie</a> </li>
     </ul>
   <div class="logo_quizz">
     <li><a href="#"><img src="assets/img/Logo.png" width="129"/></a></li>
   </div>
+  <div> <button (click)="translate()"> Traduction Anglais </button>   </div> 
+</ul>
+
+<ul *ngIf="francais == false">
+  <li><a href="#"><img id="logo" src="favicon.ico" alt="logo"/></a></li>
+  <li><br><a href="#">Mode</a></li>
+    <ul class="sous">
+      <li><a href="/entrainement">Training Mode</a></li>
+      <li><a href="/simulation">Test Mode</a></li>
+      <li><a href="/survival">Survival Mode</a> </li>
+    </ul>
+  <div class="logo_quizz">
+    <li><a href="#"><img src="assets/img/Logo.png" width="129"/></a></li>
+  </div>
+  <div> <button (click)="translate()"> French Traduction </button>  </div> 
 </ul>
 <router-outlet></router-outlet>
 
