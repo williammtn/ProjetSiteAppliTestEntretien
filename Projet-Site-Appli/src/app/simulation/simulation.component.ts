@@ -55,11 +55,10 @@ export class SimulationComponent implements OnInit {
   }
 
   creerQuestion() : number{
-    let cul = Math.random();
-    if(cul == 0){
-      cul = 1;
+    let a = Math.random();
+    if(a == 0){
+      a = 1;
     }
-    // let question : number = Math.floor(cul * 10);
     let question : number = 0;
     return question;
   }
